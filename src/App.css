@@ -1,38 +1,236 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Overpass:wght@300;400;500&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+  --b-radius: 3px;
+  --font-family: "Overpass", sans-serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: var(--font-family);
+}
+button,
+.btn-icon {
+  cursor: pointer;
+}
+.btn-icon {
+  box-sizing: border-box;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  background-color: #d3d2ed;
+  border-radius: var(--b-radius);
+  transition: all 250ms;
+}
+.btn-icon:hover {
+  background-color: #acaacf;
+}
+.btn-icon:active {
+  transform: scale(0.9);
+}
+.welcome {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(122.19deg, #715dbb 1.89%, #2a00d5 113.56%);
+  position: relative;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.welcome > h1 {
+  font-family: "Changa One";
+  font-weight: normal;
+  font-size: 144px;
+  transform: translateX(-50%);
+  left: 50%;
+  text-align: center;
+  top: 15px;
+  width: 100%;
+  position: absolute;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.login-register-container {
+  padding: 1em;
+}
+.login-register-container form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: var(--b-radius);
+  padding: 20px 50px;
+  left: 150px;
+  top: 360px;
+  background: #ffffff;
+}
+.login-register-container input {
+  height: 30px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: var(--b-radius);
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 1em;
+  padding: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
+.login-register-container button {
+  padding: 5px 20px;
+  border: none;
+  border-radius: var(--b-radius);
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.sign-in-register-btn {
+  background: linear-gradient(122.19deg, #715dbb 1.89%, #2a00d5 113.56%);
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: normal;
+  color: white;
+}
+.create-account-btn {
+  background: none;
+  margin-top: 10px;
+}
+
+.todo-svg {
+  position: absolute;
+  bottom: 100px;
+  right: 300px;
+  transform: scale(1.3);
+}
+.homepage {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(122.19deg, #715dbb 1.89%, #2a00d5 113.56%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.add-edit-input {
+  top: 20px;
+  outline: none;
+  border: none;
+  border-radius: var(--b-radius);
+  height: 30px;
+  font-size: 25px;
+  padding: 0.5em;
+}
+.add-confirm-todo {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin-bottom: 2em;
+  line-height: 0;
+}
+.add-confirm-icon {
+  cursor: pointer;
+  color: rgb(238, 238, 238);
+  transform: scale(1.5);
+  transition: transform 250ms;
+}
+.add-confirm-icon:active {
+  transform: scale(1.25);
+}
+.todo-list {
+  display: flex;
+  gap: 1.25em;
+  flex-direction: column;
+  padding: 1.25em;
+  border-radius: var(--b-radius);
+  background: rgb(59 44 143);
+  color: #fff;
+}
+.todo {
+  padding: 0.5em;
+  display: flex;
+  border-radius: var(--b-radius);
+  align-items: center;
+  color: #323232;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgb(236, 236, 236);
+}
+.todo > span {
+  width: 500px;
+  padding: 5px 10px;
+  font-size: 1.5em;
+}
+.todo-btns {
+  display: flex;
+  gap: 10px;
+}
+.edit-button,
+.delete-button {
+  cursor: pointer;
+  margin-left: 10px;
+}
+.logout-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: white;
+}
+.welcome-msg {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #fff;
+  font-weight: 400;
+}
+.error {
+  display: block;
+  color: red;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  .todo-list {
+    width: 90%;
+  }
+  .todo > span {
+    width: 100%;
+  }
+  .welcome h1 {
+    font-size: 5em;
+  }
+}
+@media (max-width: 500px) {
+  .todo {
+    flex-direction: column;
+  }
+  .add-confirm-todo {
+    flex-direction: column;
+  }
+  .add-edit-input {
+    width: 85%;
+  }
+  .welcome-msg {
+    font-size: 1em;
+  }
+  .welcome h1 {
+    font-size: 3em;
   }
 }
